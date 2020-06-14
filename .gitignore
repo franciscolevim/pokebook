@@ -2,5 +2,11 @@
 .vscode
 .requirements_vscode.txt
 
+# Python.
+__pycache__
+pokebook.egg-info
+
 # Pruebas unitarias.
 test
+.requirements_test.txt
+
