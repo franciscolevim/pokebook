@@ -1,1 +1,6 @@
-requirements_vscode.txt
+# Configuración de vscode.
+.vscode
+.requirements_vscode.txt
+
+# Pruebas unitarias.
+test
