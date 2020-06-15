@@ -59,16 +59,8 @@ class PokemonConstants:
     Constantes para dar formato a los datos de un pokemon.
     """
     def __init__(self):
-        self.__ID_FILL = 4
-        self.__ID_FORMAT = '0000'        
+        self.__ID_FILL = 4      
 
-
-    @property
-    def ID_FORMAT(self):
-        """
-        Formato del id del pokemon: 0000.
-        """
-        return self.__ID_FORMAT
 
     @property
     def ID_FILL(self):

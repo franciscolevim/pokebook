@@ -78,13 +78,20 @@ class Pokemon(AbstractModel):
         Número con el que se identifica al pokemon en la pokeapi, este es guardado como un str con formato de 4 
         dígitos, por lo que los números con menos de 4 dígitos se rellena con ceros a la izquierda. Este número siempre 
         debe ser mayor o igual que cero, en caso de ser 0 se debe considerar como un valor indefinido.
+
+        Un valor None será tomado como un valor cero (indefinido).
         """
         return self.__id
 
     @id.setter
     def id(self, id):
-        self.__id = str(id) if id else '0'
-        self.__id = self.__id.zfill(pokconst.ID_FILL) if self.__id.isnumeric() else pokconst.ID_FORMAT
+        self.__id = str(id) if id else '0' 
+        if not self.__id.isnumeric():
+            raise(ValueError('El valor del id debe ser un número mayor o igual a 0.'))
+        elif int(self.__id) < 0:
+            raise(ValueError('El valor del id debe ser mayor o igual a 0.'))
+        else:
+            self.__id = self.__id.zfill(pokconst.ID_FILL)
 
     @property
     def name(self):
