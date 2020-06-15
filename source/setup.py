@@ -8,5 +8,5 @@ setup(
     author = 'levbono',
     author_email = 'franciscolevim@gmail.com',
     url = 'https://github.com/franciscolevim/pokebook',
-    packages = ['models', 'services']
+    packages = ['pokebook', 'pokebook.models', 'pokebook.services', 'pokebook.utils']
 )
