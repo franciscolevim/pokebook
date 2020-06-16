@@ -17,7 +17,7 @@ def get_pokemon_by_name(value:str):
         value - Nombre del pokemón.
     """
     if value and value.strip().lower() != '':
-        return get_pokemon(f'{apiurl.POKEMON_URL}/{value}')
+        return get_pokemon(f'{apiurl.POKEMON_URL}/{value.strip().lower()}')
     else:
         raise(ValueError('The name value must be a valid name.'))
 
