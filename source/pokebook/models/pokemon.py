@@ -38,22 +38,6 @@ class Pokemon(AbstractModel):
         self.url = url
 
 
-    def fill(self, json:dict):
-        """
-        Llena las propiedades del modelo con información de un JSON obtenido de la pokeapi.
-
-        Parámetros:
-
-            json - Contiene la información del pokemon obtenida de la pokeapi como un tipo de diccionario.
-        """
-        if json:
-            self.name = json[apiconst.NAME]
-            self.abilities = json[apiconst.ABILITIES]
-            self.moves = json[apiconst.MOVES]
-            self.sprites = json[apiconst.SPRITES]
-            self.types = json[apiconst.TYPES]
-
-
     def __eq__(self, right):
         """        
         Retorna: True si __id y __name son iguales, de lo contrario False.

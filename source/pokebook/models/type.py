@@ -26,16 +26,6 @@ class Type(AbstractModel):
         return self.name == right.name
 
 
-    def fill(self, json:map):
-        """
-        Parámetros:
-
-            json - Contiene la información del tipo obtenida de la pokeapi como un tipo de diccionario.
-        """
-        if json:
-            self.name = json[apiconst.NAME]
-
-
     @property
     def name(self):
         """

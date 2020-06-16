@@ -2,13 +2,6 @@ class AbstractModel:
     """
     Clase base para generar el modelo de la aplicación.
     """
-    def fill(self, json:map):
-        """
-        Llena las propiedades del modelo con información de un JSON obtenido de la pokeapi.
-        
-        ** Este método debe ser implementado por cada modelo de forma específica.
-        """
-        pass
 
 
     @property

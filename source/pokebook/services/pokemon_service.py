@@ -47,7 +47,6 @@ def get_pokemon(pokemon_url:str):
     if response.ok:
         response_json = response.json()
         pokemon = Pokemon(id = response_json[apiconst.ID], url = pokemon_url)
-        pokemon.fill(response_json)
         return pokemon
     else:
         print(f'[{response.status_code}]: {response.reason}')
