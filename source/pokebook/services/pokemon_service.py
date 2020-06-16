@@ -5,6 +5,7 @@ import requests
 from pokebook.models.pokemon import Pokemon
 from pokebook.models.type import Type
 from pokebook.models.move import Move
+from pokebook.models.sprites import Sprites
 from pokebook.models.ability import Ability
 from pokebook.utils.urls import apiurl
 from pokebook.utils.constants import apiconst
@@ -62,6 +63,18 @@ def get_pokemon(pokemon_url:str):
         for ability_slot in response_json[apiconst.ABILITIES]:
             pokemon_ability = ability_slot[apiconst.ABILITY]
             pokemon.abilities.append(Ability(pokemon_ability[apiconst.NAME], pokemon_ability[apiconst.URL])) 
+
+        sprites = response_json[apiconst.SPRITES]
+        pokemon_sprites = Sprites()
+        pokemon_sprites.back_default = sprites[apiconst.BACK_DEFAULT]
+        pokemon_sprites.back_female = sprites[apiconst.BACK_FEMALE]
+        pokemon_sprites.back_shiny = sprites[apiconst.BACK_SHINY]
+        pokemon_sprites.back_shiny_female = sprites[apiconst.BACK_SHINY_FEMALE]
+        pokemon_sprites.front_default = sprites[apiconst.BACK_DEFAULT]
+        pokemon_sprites.front_female = sprites[apiconst.FRONT_FEMALE]
+        pokemon_sprites.front_shiny = sprites[apiconst.FRONT_SHINY]
+        pokemon_sprites.front_shiny_female = sprites[apiconst.FRONT_SHINY_FEMALE]
+        pokemon.sprites = pokemon_sprites
 
         return pokemon
     else:

@@ -12,6 +12,17 @@ class PoekapiConstants:
         self.__SPRITES = 'sprites'        
         self.__TYPES = 'types'
         self.__TYPE = 'type'
+
+
+        self.__BACK_DEFAULT = 'back_default'
+        self.__BACK_FEMALE = 'back_female'
+        self.__BACK_SHINY = 'back_shiny'
+        self.__BACK_SHINY_FEMALE = 'back_shiny_female'
+        self.__FRONT_DEFAULT = 'front_default'
+        self.__FRONT_FEMALE = 'front_female'
+        self.__FRONT_SHINY = 'front_shiny'
+        self.__FRONT_SHINY_FEMALE = 'front_shiny_female'
+
         self.__URL = 'url'
 
 
@@ -77,6 +88,40 @@ class PoekapiConstants:
         Tipo de pokemon.
         """
         return self.__TYPE
+
+
+    @property
+    def BACK_DEFAULT(self):
+        return self.__BACK_DEFAULT
+
+    @property
+    def BACK_FEMALE(self):
+        return self.__BACK_FEMALE
+
+    @property
+    def BACK_SHINY(self):
+        return self.__BACK_SHINY
+
+    @property
+    def BACK_SHINY_FEMALE(self):
+        return self.__BACK_SHINY_FEMALE
+
+    @property
+    def FRONT_DEFAULT(self):
+        return self.__FRONT_DEFAULT
+
+    @property
+    def FRONT_FEMALE(self):
+        return self.__FRONT_FEMALE
+
+    @property
+    def FRONT_SHINY(self):
+        return self.__FRONT_SHINY
+
+    @property
+    def FRONT_SHINY_FEMALE(self):
+        return self.__FRONT_SHINY_FEMALE
+
 
     @property
     def URL(self):

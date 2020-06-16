@@ -1,4 +1,5 @@
 from pokebook.models.abstract_model import AbstractModel
+from pokebook.models.sprites import Sprites
 from pokebook.utils.constants import apiconst, pokconst
 
 

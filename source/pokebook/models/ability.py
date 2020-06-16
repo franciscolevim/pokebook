@@ -17,6 +17,7 @@ class Ability(AbstractModel):
     def __eq__(self, right):
         return self.name == right.name
 
+
     @property
     def name(self):
         """
