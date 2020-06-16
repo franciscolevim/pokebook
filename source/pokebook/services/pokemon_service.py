@@ -4,6 +4,7 @@ Servicios para recuperar la información de un pokemón.
 import requests
 from pokebook.models.pokemon import Pokemon
 from pokebook.utils.urls import apiurl
+from pokebook.utils.constants import apiconst
 
 
 def get_pokemon_by_name(value:str):
@@ -45,7 +46,7 @@ def get_pokemon(pokemon_url:str):
     response = requests.get(pokemon_url)
     if response.ok:
         response_json = response.json()
-        pokemon = Pokemon(url = pokemon_url)
+        pokemon = Pokemon(id = response_json[apiconst.ID], url = pokemon_url)
         pokemon.fill(response_json)
         return pokemon
     else:
