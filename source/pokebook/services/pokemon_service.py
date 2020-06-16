@@ -48,7 +48,6 @@ def get_pokemon(pokemon_url:str):
     if response.ok:
         response_json = response.json()
         pokemon = Pokemon(response_json[apiconst.ID], response_json[apiconst.NAME] , pokemon_url)
-        pokemon.types = []
 
         for type_slot in response_json[apiconst.TYPES]:
             pokemon_type = type_slot[apiconst.TYPE]

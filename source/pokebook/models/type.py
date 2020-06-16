@@ -4,11 +4,7 @@ from pokebook.utils.constants import apiconst
 
 class Type(AbstractModel):
     """
-    Tipo al que puede pertenecer un pokemon.
-
-    Propiedades:
-        
-        name - Habilidades del pokemon.       
+    Tipo al que puede pertenecer un pokemon.   
     """
     def __init__(self, name:str, url = ''):
         self.name = name
