@@ -7,6 +7,7 @@ class PoekapiConstants:
         self.__NAME = 'name'
         self.__ABILITIES = 'abilities'
         self.__MOVES = 'moves'
+        self.__MOVE = 'move'
         self.__SPRITES = 'sprites'        
         self.__TYPES = 'types'
         self.__TYPE = 'type'
@@ -40,6 +41,13 @@ class PoekapiConstants:
         Movimientos que puede tener un pokemon.
         """
         return self.__MOVES
+
+    @property
+    def MOVE(self):
+        """
+        Movimiento que puede tener un pokemon.
+        """
+        return self.__MOVE
 
     @property
     def SPRITES(self):

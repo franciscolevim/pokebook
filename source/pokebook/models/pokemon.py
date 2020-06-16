@@ -14,9 +14,7 @@ class Pokemon(AbstractModel):
     Propiedades:
         
         abilities - Habilidades del pokemon.       
-        moves     - Movimientos del pokemon.
         sprites   - Sprites del pokemon con los que cuenta la pokeapi.
-        types     - Tipos del pokemon.
     """
     def __init__(self, id:int, name = '', url  = ''):
         """
@@ -34,7 +32,7 @@ class Pokemon(AbstractModel):
         self.abilities = None
         self.moves = None
         self.sprites = None
-        self.types:list = []
+        self.types = None
         self.url = url
 
 
@@ -56,8 +54,8 @@ class Pokemon(AbstractModel):
         dígitos, por lo que los números con menos de 4 dígitos se rellena con ceros a la izquierda. Este número siempre 
         debe ser mayor o igual que 0, en caso de ser 0 se debe considerar como un valor indefinido.
 
-        Puede usarse un str, siempre y cuando este sea un número. Se recoienda usar un entero para tener consitencia 
-        con el código.
+        Puede usarse un str, siempre y cuando este sea un número. Se recomienda usar un valor int para tener 
+        consitencia con el código.
 
         Un valor None será tomado como un valor cero (indefinido).
         """
@@ -73,6 +71,7 @@ class Pokemon(AbstractModel):
         else:
             self.__id = self.__id.zfill(pokconst.ID_FILL)
 
+
     @property
     def name(self):
         """
@@ -84,3 +83,29 @@ class Pokemon(AbstractModel):
     @name.setter
     def name(self, name:str):
         self.__name = name.strip().lower() if name else ''
+
+    @property
+    def moves(self):
+        """
+        Todos los movimientos con los que puede contar un pokemon. 
+
+        Los movimientos se guardan como una lista, en caso de darle un valor None se guarda como una lista vacía.
+        """
+        return self.__moves
+
+    @moves.setter
+    def moves(self, moves:list):
+        self.__moves = moves if moves else []
+
+    @property
+    def types(self):
+        """
+        Tipos a los que pertenece el pokemon.
+
+        Los tipos se guardan como una lista, en caso de darle un valor None se guarda como una lista vacía.
+        """
+        return self.__types
+
+    @types.setter
+    def types(self, types:list):
+        self.__types = types if types else []

@@ -4,6 +4,7 @@ Servicios para recuperar la información de un pokemón.
 import requests
 from pokebook.models.pokemon import Pokemon
 from pokebook.models.type import Type
+from pokebook.models.move import Move
 from pokebook.utils.urls import apiurl
 from pokebook.utils.constants import apiconst
 
@@ -52,7 +53,11 @@ def get_pokemon(pokemon_url:str):
         for type_slot in response_json[apiconst.TYPES]:
             pokemon_type = type_slot[apiconst.TYPE]
             pokemon.types.append(Type(pokemon_type[apiconst.NAME], pokemon_type[apiconst.URL]))
-        
+
+        for move_slot in response_json[apiconst.MOVES]:
+            pokemon_move = move_slot[apiconst.MOVE]
+            pokemon.moves.append(Move(pokemon_move[apiconst.NAME], pokemon_move[apiconst.URL])) 
+
         return pokemon
     else:
         print(f'[{response.status_code}]: {response.reason}')
