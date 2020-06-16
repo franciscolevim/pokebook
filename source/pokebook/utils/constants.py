@@ -9,6 +9,8 @@ class PoekapiConstants:
         self.__MOVES = 'moves'
         self.__SPRITES = 'sprites'        
         self.__TYPES = 'types'
+        self.__TYPE = 'type'
+        self.__URL = 'url'
 
 
     @property
@@ -42,16 +44,30 @@ class PoekapiConstants:
     @property
     def SPRITES(self):
         """
-        Sprites del pokemon en la pokeapi.
+        Sprites de los pokemones en la pokeapi.
         """
         return self.__SPRITES
 
     @property
     def TYPES(self):
         """
-        Tipos del pokemon.
+        Tipos de pokemon.
         """
         return self.__TYPES
+
+    @property
+    def TYPE(self):
+        """
+        Tipo de pokemon.
+        """
+        return self.__TYPE
+
+    @property
+    def URL(self):
+        """
+        URL del pokemon dentro de la pokeapi.
+        """
+        return self.__URL
 
 
 class PokemonConstants:

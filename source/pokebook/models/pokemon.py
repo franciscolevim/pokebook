@@ -34,7 +34,7 @@ class Pokemon(AbstractModel):
         self.abilities = None
         self.moves = None
         self.sprites = None
-        self.types = None
+        self.types:list = []
         self.url = url
 
 
