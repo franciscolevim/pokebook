@@ -13,27 +13,21 @@ class Pokemon(AbstractModel):
 
     Propiedades:
         
-        abilities - Habilidades del pokemon.
-        
-        moves - Movimientos del pokemon.
-        
-        sprites - Sprites del pokemon con los que cuenta la pokeapi.
-        
-        types - Tipos del pokemon.
+        abilities - Habilidades del pokemon.       
+        moves     - Movimientos del pokemon.
+        sprites   - Sprites del pokemon con los que cuenta la pokeapi.
+        types     - Tipos del pokemon.
     """
-    def __init__(self, id = 0, name = '', url  = ''):
+    def __init__(self, id:int, name = '', url  = ''):
         """
-        Genera el modelo con los datos mínimos de un pokemon; los datos pueden ser indefinidos, en cuyo caso sus 
-        valores serán los default.
+        Genera el modelo con los datos mínimos de un pokemon. Es necesario un id de tipo entero para poder obtener un 
+        objeto de tipo Pokemon.
 
         Parámetros:
 
-            id - Es el número con el que se identifica al pokemon, este debe ser un número entero. También puede ser un 
-            str pero por claridad se sugiere usar un int.
-
+            id   - Es el número con el que se identifica al pokemon, este debe ser un número entero.
             name - Nombre con el que se identifica al pokemon.
-
-            url - URL con la que se puede recuparar al pokemon desde la pokeapi.
+            url  - URL con la que se puede recuparar al pokemon desde la pokeapi.
         """
         self.id = id
         self.name = name
@@ -53,7 +47,6 @@ class Pokemon(AbstractModel):
             json - Contiene la información del pokemon obtenida de la pokeapi como un tipo de diccionario.
         """
         if json:
-            self.id = json[apiconst.ID]
             self.name = json[apiconst.NAME]
             self.abilities = json[apiconst.ABILITIES]
             self.moves = json[apiconst.MOVES]
@@ -69,7 +62,7 @@ class Pokemon(AbstractModel):
 
 
     def __str__(self):
-        return f'Pokemon(id:{self.id}, name:{self.name}, url:{self.url})'
+        return f'Pokemon(id:{self.id}, name:{self.name})'
 
 
     @property
@@ -77,7 +70,10 @@ class Pokemon(AbstractModel):
         """        
         Número con el que se identifica al pokemon en la pokeapi, este es guardado como un str con formato de 4 
         dígitos, por lo que los números con menos de 4 dígitos se rellena con ceros a la izquierda. Este número siempre 
-        debe ser mayor o igual que cero, en caso de ser 0 se debe considerar como un valor indefinido.
+        debe ser mayor o igual que 0, en caso de ser 0 se debe considerar como un valor indefinido.
+
+        Puede usarse un str, siempre y cuando este sea un número. Se recoienda usar un entero para tener consitencia 
+        con el código.
 
         Un valor None será tomado como un valor cero (indefinido).
         """
