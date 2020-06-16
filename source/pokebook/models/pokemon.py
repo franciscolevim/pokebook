@@ -13,7 +13,6 @@ class Pokemon(AbstractModel):
 
     Propiedades:
         
-        abilities - Habilidades del pokemon.       
         sprites   - Sprites del pokemon con los que cuenta la pokeapi.
     """
     def __init__(self, id:int, name = '', url  = ''):
@@ -83,6 +82,19 @@ class Pokemon(AbstractModel):
     @name.setter
     def name(self, name:str):
         self.__name = name.strip().lower() if name else ''
+
+    @property
+    def abilities(self):
+        """
+        Un pokemon tiene una o varias habilidades.
+
+        Los habilidades se guardan como una lista, en caso de darle un valor None se guarda como una lista vacía.
+        """
+        return self.__abilities
+
+    @abilities.setter
+    def abilities(self, abilities:list):
+        self.__abilities = abilities if abilities else []   
 
     @property
     def moves(self):

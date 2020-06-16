@@ -5,6 +5,7 @@ import requests
 from pokebook.models.pokemon import Pokemon
 from pokebook.models.type import Type
 from pokebook.models.move import Move
+from pokebook.models.ability import Ability
 from pokebook.utils.urls import apiurl
 from pokebook.utils.constants import apiconst
 
@@ -57,6 +58,10 @@ def get_pokemon(pokemon_url:str):
         for move_slot in response_json[apiconst.MOVES]:
             pokemon_move = move_slot[apiconst.MOVE]
             pokemon.moves.append(Move(pokemon_move[apiconst.NAME], pokemon_move[apiconst.URL])) 
+
+        for ability_slot in response_json[apiconst.ABILITIES]:
+            pokemon_ability = ability_slot[apiconst.ABILITY]
+            pokemon.abilities.append(Ability(pokemon_ability[apiconst.NAME], pokemon_ability[apiconst.URL])) 
 
         return pokemon
     else:
