@@ -11,6 +11,28 @@ from pokebook.utils.urls import apiurl
 from pokebook.utils.constants import apiconst
 
 
+def get_pokemons(limit = 10, offset = 0):
+    """
+    Parametters:
+
+        limit - Cantidad de pokemones que se desean listar.
+        offset - A partir de cual pokemon que se desplegará la lista.
+    """
+    pokemons = []
+
+    pokemon_params = {
+                        apiurl.LIMIT_ARG:limit if limit and limit > 1 else 10, 
+                        apiurl.OFFSET_ARG:offset if offset and offset > 1 else 10
+                    }
+    response = requests.get(apiurl.POKEMON_URL, params = pokemon_params)
+
+    if response.ok:
+        response_json = response.json()    
+        for pokemon_json in response_json[apiconst.RESULTS]:
+            pokemons.append(get_pokemon(pokemon_json[apiconst.URL]))
+            
+    return pokemons
+
 def get_pokemon_by_name(value:str):
     """
     Recupera la información de un pokemón por medio de su nombre.

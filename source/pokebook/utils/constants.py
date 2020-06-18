@@ -23,6 +23,7 @@ class PoekapiConstants:
         self.__FRONT_SHINY = 'front_shiny'
         self.__FRONT_SHINY_FEMALE = 'front_shiny_female'
 
+        self.__RESULTS = 'results'
         self.__URL = 'url'
 
 
@@ -122,6 +123,12 @@ class PoekapiConstants:
     def FRONT_SHINY_FEMALE(self):
         return self.__FRONT_SHINY_FEMALE
 
+    @property
+    def RESULTS(self):
+        """
+        Resultado de peticiones a la poekapi.
+        """
+        return self.__RESULTS
 
     @property
     def URL(self):
